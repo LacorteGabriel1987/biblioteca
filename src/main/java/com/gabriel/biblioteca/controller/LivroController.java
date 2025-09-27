@@ -2,8 +2,10 @@ package com.gabriel.biblioteca.controller;
 
 
 import com.gabriel.biblioteca.entity.Livros;
+import com.gabriel.biblioteca.entity.Usuario;
 import com.gabriel.biblioteca.repository.LivroRepository;
 import com.gabriel.biblioteca.service.LivroService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +24,7 @@ public class LivroController {
     public List<Livros> listarTodosLivros(){
         return livroService.buscarTodosLivros();
     }
+
 
     @PostMapping
     public Livros criarLivro(@RequestBody Livros livro){

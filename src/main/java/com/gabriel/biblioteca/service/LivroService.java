@@ -1,7 +1,11 @@
 package com.gabriel.biblioteca.service;
 
 import com.gabriel.biblioteca.entity.Livros;
+import com.gabriel.biblioteca.entity.Usuario;
+import com.gabriel.biblioteca.exception.LivroNotFoundException;
 import com.gabriel.biblioteca.repository.LivroRepository;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -15,11 +19,13 @@ public class LivroService {
 
     public LivroService (LivroRepository livroRepository){
         this.livroRepository = livroRepository;
+
     }
     //Listar todos livros
     public List<Livros> buscarTodosLivros (){
         return livroRepository.findAll();
     }
+
 
     //Buscar por id
 

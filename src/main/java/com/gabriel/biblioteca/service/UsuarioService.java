@@ -18,25 +18,25 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-
-    public List<Usuario> ListarUsuarios() {
+    //@Get
+    public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
     }
-
-    public Usuario CriarUsuario(Usuario usuario) {
+    //@Post
+    public Usuario salvarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
-
-    public Usuario AtualizarUsuario(Long id, Usuario usuario) {
+    //@Put
+    public Usuario atualizarUsuario(Long id, Usuario usuario) {
         return usuarioRepository.findById(id)
 
-                .map(u -> {
-                    u.setNome(usuario.getNome());
-                    u.setIdade(usuario.getIdade());
-                    return usuarioRepository.save(u);
+                    .map(u -> {
+                        u.setNome(usuario.getNome());
+                        u.setIdade(usuario.getIdade());
+                        return usuarioRepository.save(u);
 
-                })
-                .orElse(null);
+                    })
+                    .orElse(null);
     }
 
     public void deletarUsuario(Long id) {
